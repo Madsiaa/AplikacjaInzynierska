@@ -1,0 +1,24 @@
+{
+  "name": "aplikacjainzynierska",
+  "version": "1.0.0",
+  "description": "Aplikacja napisana w ramach pracy inżynierskiej",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madsiaa/AplikacjaInzynierska.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Madsiaa/AplikacjaInzynierska/issues"
+  },
+  "homepage": "https://github.com/Madsiaa/AplikacjaInzynierska#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
