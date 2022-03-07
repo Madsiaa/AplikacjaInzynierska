@@ -1,7 +1,35 @@
+import { useState } from 'react';
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import Filterbar from '../components/Filterbar';
+
 const Recipes = () => {
+    const [recipesList, setRecipesList] = useState([]);
+
+    const getRecipes = () => {
+        Axios.get('http://localhost:3001/recipes').then((response) => {
+            setRecipesList(response.data);
+        });
+    }
+
     return (
         <main>
             <h1>Przepisy</h1>
+            <Link to="/dodaj-przepis" className='btnAddNew'>Dodaj nowy przepis</Link>
+            <Filterbar />
+            <button onClick={ getRecipes }>Pokaż przepisy</button>
+            <div className='recipes-list-wrapper'>
+                { recipesList.map((val, key) => {
+                    return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_recipe }>
+                                <img src={ val.recipe_image } alt="Przepis" />
+                                <p>{ val.recipe_name }</p>
+                                <p>Autor: { val.recipe_author }</p>
+                                <p>Czas wykonania: { val.recipe_time }</p>
+                                <p>Trudność: { val.recipe_level }</p>
+                                <Link to="/szczegoly-przepisu/:id">Sprawdź szczegóły</Link>
+                            </article>
+                })}
+            </div>
         </main>
     );
 }
