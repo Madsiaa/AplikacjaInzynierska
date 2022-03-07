@@ -1,7 +1,7 @@
 const Footer = () => {
     return ( 
         <footer>
-            <p>Stopka</p>
+            <p>&copy; 2022 Magdalena Janik</p>
         </footer>
     );
 }

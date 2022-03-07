@@ -7,3 +7,54 @@
   font-family: 'Roboto', sans-serif;
 }
 
+main {
+  margin: 5em auto;
+  max-width: 80vw;
+  min-height: 71.3vh;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+}
+
+p, ul, li {
+  line-height: 1.4rem;
+}
+
+
+/*  Nawigacja  */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(105, 105, 105);
+}
+
+nav a {
+  padding: 20px;
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: rgb(75, 75, 75);
+  text-decoration: underline;
+}
+
+
+/*  Stopka  */
+
+footer {
+  display: block;
+  width: 100vw;
+  height: 3rem;
+  background-color: rgb(105, 105, 105);
+  color: white;
+}
+
+footer p {
+  padding: 0.8rem;
+  text-align: center;
+}

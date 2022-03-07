@@ -13,7 +13,7 @@ import RecipeDetails from './routes/RecipeDetails';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 import Account from './auth/Account';
-
+import Signout from './auth/Signout';
 
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
         <Route path="/zaloguj" element={ <Login /> } />
         <Route path="/zarejestruj" element={ <Signup /> } />
         <Route path="/konto" element={ <Account /> } />
+        <Route path="/wyloguj" element={ <Signout /> } />
       </Routes>
       <Footer />
     </BrowserRouter>
