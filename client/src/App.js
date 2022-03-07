@@ -1,21 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+import Home from './components/Home'
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Products from './routes/Products';
+import CreateProduct from './routes/CreateProduct';
+import ProductDetails from './routes/ProductDetails';
+import Diets from './routes/Diets';
+import Recipes from './routes/Recipes';
+import CreateRecipe from './routes/CreateRecipe';
+import RecipeDetails from './routes/RecipeDetails';
+import Login from './auth/Login';
+import Signup from './auth/Signup';
+import Account from './auth/Account';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Edit <code>src/App.js</code> and save to reload.</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={ <Home /> } />
+        <Route path="/produkty" element={ <Products /> } />
+        <Route path="/dodaj-produkt" element={ <CreateProduct /> } />
+        <Route path="/szczegoly-produktu/:id" element={ <ProductDetails /> } />
+        <Route path="/diety" element={ <Diets /> } />
+        <Route path="/przepisy" element={ <Recipes /> } />
+        <Route path="/dodaj-przepis" element={ <CreateRecipe /> } />
+        <Route path="/szczegoly-przepisu/:id" element={ <RecipeDetails /> } />
+        <Route path="/zaloguj" element={ <Login /> } />
+        <Route path="/zarejestruj" element={ <Signup /> } />
+        <Route path="/konto" element={ <Account /> } />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
