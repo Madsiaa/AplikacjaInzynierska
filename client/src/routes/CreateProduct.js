@@ -42,19 +42,19 @@ const CreateProducts = () => {
                 <input type="text" onChange={ (event) => { setImage(event.target.value) } }/>
 
                 <label htmlFor="">Opis produktu</label>
-                <textarea rows="5" cols="63" onChange={ (event) => { setDescription(event.target.value) } }/>
+                <textarea rows="5" cols="66" onChange={ (event) => { setDescription(event.target.value) } }/>
 
                 <label htmlFor="">Waga produktu</label>
                 <input type="text" onChange={ (event) => { setWeight(event.target.value) } }/>
 
                 <label htmlFor="">Składniki produktu</label>
-                <textarea rows="7" cols="63" onChange={ (event) => { setIngredients(event.target.value) } }/>
+                <textarea rows="7" cols="66" onChange={ (event) => { setIngredients(event.target.value) } }/>
 
                 <label htmlFor="">Wartości odżywcze produktu</label>
-                <textarea rows="7" cols="63" onChange={ (event) => { setNutrition(event.target.value) } }/>
+                <textarea rows="7" cols="66" onChange={ (event) => { setNutrition(event.target.value) } }/>
 
                 <label htmlFor="">Alergeny produktu</label>
-                <textarea rows="4" cols="63" onChange={ (event) => { setAllergens(event.target.value) } }/>
+                <textarea rows="4" cols="66" onChange={ (event) => { setAllergens(event.target.value) } }/>
 
                 <label htmlFor="">Słowa kluczowe produktu</label>
                 <input type="text" onChange={ (event) => { setKeywords(event.target.value) } }/>

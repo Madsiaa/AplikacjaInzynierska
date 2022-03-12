@@ -21,12 +21,12 @@ const Recipes = () => {
             <div className='recipes-list-wrapper'>
                 { recipesList.map((val, key) => {
                     return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_recipe }>
-                                <img src={ val.recipe_image } alt="Przepis" />
+                                <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="Przepis" />
                                 <p>{ val.recipe_name }</p>
                                 <p>Autor: { val.recipe_author }</p>
                                 <p>Czas wykonania: { val.recipe_time }</p>
                                 <p>Trudność: { val.recipe_level }</p>
-                                <Link to="/szczegoly-przepisu/:id">Sprawdź szczegóły</Link>
+                                <Link to={"/przepisy/" + val.id_recipe }>Sprawdź szczegóły</Link>
                             </article>
                 })}
             </div>

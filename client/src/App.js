@@ -23,11 +23,11 @@ function App() {
         <Route path="/" element={ <Home /> } />
         <Route path="/produkty" element={ <Products /> } />
         <Route path="/dodaj-produkt" element={ <CreateProduct /> } />
-        <Route path="/szczegoly-produktu/:id" element={ <ProductDetails /> } />
+        <Route path="/produkty/:id" element={ <ProductDetails /> } />
         <Route path="/diety" element={ <Diets /> } />
         <Route path="/przepisy" element={ <Recipes /> } />
         <Route path="/dodaj-przepis" element={ <CreateRecipe /> } />
-        <Route path="/szczegoly-przepisu/:id" element={ <RecipeDetails /> } />
+        <Route path="/przepisy/:id" element={ <RecipeDetails /> } />
         <Route path="/zaloguj" element={ <Login /> } />
         <Route path="/zarejestruj" element={ <Signup /> } />
         <Route path="/konto" element={ <Account /> } />

@@ -48,6 +48,19 @@ app.get('/products', (req, res) => {
   });
 });
 
+// pobieranie szczegółów produktów
+app.get('/product-details', (req, res) => {
+  const id = req.body.id;
+
+  db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 // dodawanie przepisów do bazy
 app.post('/create-recipe', (req, res) => {
   const name = req.body.name;
@@ -69,6 +82,19 @@ app.post('/create-recipe', (req, res) => {
 // pobieranie przepisów
 app.get('/recipes', (req, res) => {
   db.query("SELECT * FROM recipes", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+// pobieranie szczegółów przepisów
+app.get('/recipe-details', (req, res) => {
+  const id = req.body.id;
+
+  db.query("SELECT * FROM recipes WHERE id_recipe = (?)", [id], (err, result) => {
     if (err) {
       console.log(err);
     } else {

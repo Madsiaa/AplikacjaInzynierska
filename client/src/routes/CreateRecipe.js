@@ -35,13 +35,13 @@ const CreateRecipe = () => {
                 <input type="text" onChange={ (event) => { setAuthor(event.target.value) } }/>
 
                 <label htmlFor="">Opis przepisu</label>
-                <textarea rows="5" cols="63" onChange={ (event) => { setDescription(event.target.value) } }/>
+                <textarea rows="5" cols="66" onChange={ (event) => { setDescription(event.target.value) } }/>
 
                 <label htmlFor="">Składniki przepisu</label>
-                <textarea rows="7" cols="63" onChange={ (event) => { setIngredients(event.target.value) } }/>
+                <textarea rows="7" cols="66" onChange={ (event) => { setIngredients(event.target.value) } }/>
 
                 <label htmlFor="">Kolejne kroki wykonania przepisu</label>
-                <textarea rows="7" cols="63" onChange={ (event) => { setSteps(event.target.value) } }/>
+                <textarea rows="7" cols="66" onChange={ (event) => { setSteps(event.target.value) } }/>
 
                 <label htmlFor="">Adres URL do zdjęcia przepisu</label>
                 <input type="text" onChange={ (event) => { setImage(event.target.value) } }/>

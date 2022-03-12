@@ -21,6 +21,20 @@ p, ul, li {
   line-height: 1.4rem;
 }
 
+.btnAddNew {
+  float: right;
+  margin-top: -42px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: rgb(105, 105, 105);
+  color: white;
+}
+
+.btnAddNew:hover {
+  background-color: rgb(75, 75, 75);
+  text-decoration: underline;
+}
+
 
 /*  Nawigacja  */
 
@@ -94,9 +108,18 @@ nav a:hover {
 }
 
 .form button {
-  width: 10rem;
-  height: 2rem;
   margin-top: 1.5rem;
+  padding: 14px 24px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: rgb(105, 105, 105);
+  color: white;
+  border: none;
+}
+
+.form button:hover {
+  background-color: rgb(75, 75, 75);
+  text-decoration: underline;
 }
 
 
@@ -163,7 +186,7 @@ ul {
   width: 20rem;
 }
 
-.recipe-list-wrapper {
+.recipes-list-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -196,6 +219,8 @@ ul {
 
 footer {
   display: block;
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 3rem;
   background-color: rgb(105, 105, 105);
