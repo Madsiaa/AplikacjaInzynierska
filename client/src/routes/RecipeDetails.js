@@ -6,7 +6,7 @@ const RecipeDetails = () => {
     const { id } = useParams();
     const [recipe, setRecipe] = useState([]);
     const [recipeId, setRecipeId] = useState('');
-    console.log({id});
+    console.log('Id: ' + {id});
 
     useEffect(() => {
         const getRecipe = () => {
@@ -21,7 +21,7 @@ const RecipeDetails = () => {
 
     return (
         <main>
-            <h1>Szczegóły przepisu</h1>
+            <h1>Szczegóły przepisu ID: { id }</h1>
             {recipe.map((val, key) => {
                 return <article className='recipe-details-wrapper'>
                         <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="zdjęcie przepisu" />

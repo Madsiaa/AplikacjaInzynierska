@@ -6,14 +6,33 @@ const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [productId, setProductId] = useState('');
+    console.log('Id: ' + {id});
 
-    useEffect(() => {
-        const getProduct = () => {
-            Axios.get("http://localhost:3001/product-details", { id: productId }).then((response) => {
+    const getProduct = () => {
+        /*
+        Axios.post("http://localhost:3001/send-product-details", { id: productId }).then((response) => {
+            console.log(response);
+            console.log('Jestem w post')
+            Axios.get("http://localhost:3001/get-product-details").then((response) => {
+                console.log('Jestem w get')
                 setProduct(response.data);
                 setProductId({id});
             });
-        }
+        });
+        */
+
+        const postData = Axios.post("http://localhost:3001/send-product-details", { id: productId });
+        const getData = Axios.get("http://localhost:3001/get-product-details");
+        setProductId({id});
+
+        Axios.all([postData, getData]).then(Axios.spread((...responses) => {
+            const postRes = responses[0];
+            const getRes = responses[1];
+            setProduct(getRes.data);
+        }));
+    }
+
+    useEffect(() => {
         getProduct();
     }, []);
 

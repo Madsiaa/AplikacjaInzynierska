@@ -7,7 +7,6 @@ const CreateRecipe = () => {
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [steps, setSteps] = useState('');
-    const [image, setImage] = useState('');
     const [keywords, setKeywords] = useState('');
 
     const addRecipe = () => {
@@ -17,7 +16,6 @@ const CreateRecipe = () => {
             description: description,  
             ingredients: ingredients, 
             steps: steps, 
-            image: image,
             keywords: keywords
         }).then(() => {
             alert('Pomyślnie dodano przepis do bazy!');
@@ -42,9 +40,6 @@ const CreateRecipe = () => {
 
                 <label htmlFor="">Kolejne kroki wykonania przepisu</label>
                 <textarea rows="7" cols="66" onChange={ (event) => { setSteps(event.target.value) } }/>
-
-                <label htmlFor="">Adres URL do zdjęcia przepisu</label>
-                <input type="text" onChange={ (event) => { setImage(event.target.value) } }/>
 
                 <label htmlFor="">Słowa kluczowe przepisu</label>
                 <input type="text" onChange={ (event) => { setKeywords(event.target.value) } }/>

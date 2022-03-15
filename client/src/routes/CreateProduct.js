@@ -4,7 +4,6 @@ import Axios from 'axios';
 const CreateProducts = () => {
     const [name, setName] = useState('');
     const [brand, setBrand] = useState('');
-    const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
     const [weight, setWeight] = useState('');
     const [ingredients, setIngredients] = useState('');
@@ -16,7 +15,6 @@ const CreateProducts = () => {
         Axios.post('http://localhost:3001/create-product', {
             name: name, 
             brand: brand, 
-            image: image, 
             description: description, 
             weight: weight, 
             ingredients: ingredients, 
@@ -37,9 +35,6 @@ const CreateProducts = () => {
 
                 <label htmlFor="">Marka produktu</label>
                 <input type="text" onChange={ (event) => { setBrand(event.target.value) } }/>
-
-                <label htmlFor="">Adres URL do zdjęcia produktu</label>
-                <input type="text" onChange={ (event) => { setImage(event.target.value) } }/>
 
                 <label htmlFor="">Opis produktu</label>
                 <textarea rows="5" cols="66" onChange={ (event) => { setDescription(event.target.value) } }/>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Filterbar from '../components/Filterbar';
@@ -12,12 +12,15 @@ const Recipes = () => {
         });
     }
 
+    useEffect(() => {
+        getRecipes();
+    }, []);
+
     return (
         <main>
             <h1>Przepisy</h1>
             <Link to="/dodaj-przepis" className='btnAddNew'>Dodaj nowy przepis</Link>
             <Filterbar />
-            <button onClick={ getRecipes }>Pokaż przepisy</button>
             <div className='recipes-list-wrapper'>
                 { recipesList.map((val, key) => {
                     return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_recipe }>

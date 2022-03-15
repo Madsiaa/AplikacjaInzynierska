@@ -21,7 +21,6 @@ const db = mysql.createConnection({
 app.post('/create-product', (req, res) => {
   const name = req.body.name;
   const brand = req.body.brand;
-  const image = req.body.image;
   const description = req.body.description;
   const weight = req.body.weight;
   const ingredients = req.body.ingredients;
@@ -29,8 +28,8 @@ app.post('/create-product', (req, res) => {
   const allergens = req.body.allergens;
   const keywords = req.body.keywords;
 
-  db.query('INSERT INTO products (product_name, product_brand, product_image, product_description, product_weight, product_ingredients, product_nutrition, product_allergens, product_keywords) VALUES (?,?,?,?,?,?,?,?,?)',
-  [name, brand, image, description, weight, ingredients, nutrition, allergens, keywords],
+  db.query('INSERT INTO products (product_name, product_brand, product_description, product_weight, product_ingredients, product_nutrition, product_allergens, product_keywords) VALUES (?,?,?,?,?,?,?,?)',
+  [name, brand, description, weight, ingredients, nutrition, allergens, keywords],
   (err, result) => {
     if(err) console.log(err);
     else res.send('Dodano rekord do bazy');
@@ -49,15 +48,18 @@ app.get('/products', (req, res) => {
 });
 
 // pobieranie szczegółów produktów
-app.get('/product-details', (req, res) => {
+app.post('/send-product-details', (req, res) => {
   const id = req.body.id;
-
-  db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
+  console.log("ID: " + id);
+  
+  app.get('/get-product-details', (req, res) => {
+    db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
   });
 });
 
@@ -68,11 +70,10 @@ app.post('/create-recipe', (req, res) => {
   const description = req.body.description;
   const ingredients = req.body.ingredients;
   const steps = req.body.steps;
-  const image = req.body.image;
   const keywords = req.body.keywords;
 
-  db.query('INSERT INTO recipes (recipe_name, recipe_author, recipe_description, recipe_ingredients, recipe_steps, recipe_image, recipe_keywords) VALUES (?,?,?,?,?,?,?)',
-  [name, author, description, ingredients, steps, image, keywords],
+  db.query('INSERT INTO recipes (recipe_name, recipe_author, recipe_description, recipe_ingredients, recipe_steps, recipe_keywords) VALUES (?,?,?,?,?,?)',
+  [name, author, description, ingredients, steps, keywords],
   (err, result) => {
     if(err) console.log(err);
     else res.send('Dodano rekord do bazy');
@@ -91,8 +92,9 @@ app.get('/recipes', (req, res) => {
 });
 
 // pobieranie szczegółów przepisów
-app.get('/recipe-details', (req, res) => {
+app.post('/recipe-details', (req, res) => {
   const id = req.body.id;
+  console.log("ID: " + id);
 
   db.query("SELECT * FROM recipes WHERE id_recipe = (?)", [id], (err, result) => {
     if (err) {

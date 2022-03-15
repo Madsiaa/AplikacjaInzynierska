@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Filterbar from '../components/Filterbar';
@@ -12,12 +12,16 @@ const Products = () => {
         });
     }
 
+    useEffect(() => {
+        getProducts();
+    }, []);
+    
+
     return (
         <main>
             <h1>Produkty</h1>
             <Link to="/dodaj-produkt" className="btnAddNew">Dodaj nowy produkt</Link>
             <Filterbar />
-            <button onClick={ getProducts }>Pokaż produkty</button>
             <div className='product-list-wrapper'>
                 { productsList.map((val, key) => {
                     return  <article className='product-wrapper' key={ 'product-' + val.id_product }>
