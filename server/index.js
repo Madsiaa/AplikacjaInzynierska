@@ -39,27 +39,18 @@ app.post('/create-product', (req, res) => {
 // pobieranie produktów
 app.get('/products', (req, res) => {
   db.query("SELECT * FROM products", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
+    if(err)  console.log(err);
+    else  res.send(result);
   });
 });
 
 // pobieranie szczegółów produktów
-app.post('/send-product-details', (req, res) => {
+app.post('/product-details', (req, res) => {
   const id = req.body.id;
-  console.log("ID: " + id);
   
-  app.get('/get-product-details', (req, res) => {
-    db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    });
+  db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
+    if(err)  console.log(err);
+    else  res.send(result);
   });
 });
 
@@ -73,7 +64,7 @@ app.post('/create-recipe', (req, res) => {
   const keywords = req.body.keywords;
 
   db.query('INSERT INTO recipes (recipe_name, recipe_author, recipe_description, recipe_ingredients, recipe_steps, recipe_keywords) VALUES (?,?,?,?,?,?)',
-  [name, author, description, ingredients, steps, keywords],
+    [name, author, description, ingredients, steps, keywords],
   (err, result) => {
     if(err) console.log(err);
     else res.send('Dodano rekord do bazy');
@@ -83,25 +74,29 @@ app.post('/create-recipe', (req, res) => {
 // pobieranie przepisów
 app.get('/recipes', (req, res) => {
   db.query("SELECT * FROM recipes", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
+    if(err)  {console.log(err);}
+    else  {res.send(result);}
   });
 });
 
 // pobieranie szczegółów przepisów
 app.post('/recipe-details', (req, res) => {
   const id = req.body.id;
-  console.log("ID: " + id);
-
+  
   db.query("SELECT * FROM recipes WHERE id_recipe = (?)", [id], (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
+    if(err)  console.log(err);
+    else  res.send(result);
+  });
+});
+
+
+// nadanie admina użytkownikowi
+app.post('/add-new-admin', (req, res) => {
+  const userName = req.body.userName;
+
+  db.query("UPDATE users SET user_role = 'admin' WHERE user_name = (?)", [userName], (err, result) => {
+    if(err) console.log(err);
+    else res.send('Zmieniono rekord!');
   });
 });
 

@@ -19,7 +19,7 @@ const CreateRecipe = () => {
             keywords: keywords
         }).then(() => {
             alert('Pomyślnie dodano przepis do bazy!');
-        })
+        });
     };
 
     return ( 

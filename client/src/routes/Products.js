@@ -16,14 +16,13 @@ const Products = () => {
         getProducts();
     }, []);
     
-
     return (
         <main>
             <h1>Produkty</h1>
             <Link to="/dodaj-produkt" className="btnAddNew">Dodaj nowy produkt</Link>
             <Filterbar />
             <div className='product-list-wrapper'>
-                { productsList.map((val, key) => {
+                {productsList.map((val, key) => {
                     return  <article className='product-wrapper' key={ 'product-' + val.id_product }>
                                 <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="Przepis" />
                                 <p>{ val.product_name }</p>
@@ -31,7 +30,7 @@ const Products = () => {
                                 <p>{ val.product_keywords }</p>
                                 <Link to={"/produkty/" + val.id_product }>Sprawdź szczegóły</Link>
                             </article>
-                }) }
+                })}
             </div>
         </main>
     );

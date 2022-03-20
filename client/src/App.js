@@ -4,7 +4,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Products from './routes/Products';
-import CreateProduct from './routes/CreateProduct';
+import CreateProduct from './components/CreateProduct';
 import ProductDetails from './routes/ProductDetails';
 import Diets from './routes/Diets';
 import Recipes from './routes/Recipes';

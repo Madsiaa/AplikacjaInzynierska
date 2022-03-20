@@ -158,6 +158,33 @@ nav a:hover {
 }
 
 
+/*  Szczegóły produktów  */
+.product-details-wrapper img {
+  display: block;
+  margin: 2rem auto;
+  width: 25rem;
+}
+
+.product-details-wrapper p {
+  line-height: 1.8em;
+}
+
+.product-details-wrapper button {
+  float: right;
+  margin-top: -42px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: rgb(105, 105, 105);
+  color: white;
+  border: none;
+}
+
+.btnAddNew:hover {
+  background-color: rgb(75, 75, 75);
+  text-decoration: underline;
+}
+
+
 /*  Diety  */
 
 .diets-header {

@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Filterbar from '../components/Filterbar';
 
-const Recipes = () => {
+const  Recipes = () => {
     const [recipesList, setRecipesList] = useState([]);
 
     const getRecipes = () => {
@@ -15,6 +15,42 @@ const Recipes = () => {
     useEffect(() => {
         getRecipes();
     }, []);
+    
+    return (
+        <main>
+            <h1>Przepisy</h1>
+            <Link to="/dodaj-przepis" className="btnAddNew">Dodaj nowy przepis</Link>
+            <Filterbar />
+            <div className='recipe-list-wrapper'>
+                {recipesList.map((val, key) => {
+                    return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_product }>
+                                <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="Przepis" />
+                                <p>{ val.recipe_name }</p>
+                                <p>Autor: { val.recipe_author }</p>
+                                <p>Czas wykonania: { val.recipe_time }</p>
+                                <p>Trudność: { val.recipe_level }</p>
+                                <Link to={"/przepisy/" + val.id_recipe }>Sprawdź szczegóły</Link>
+                            </article>
+                })}
+            </div>
+        </main>
+    );
+
+
+
+
+    /*
+    const [recipesList, setRecipesList] = useState([]);
+
+    const getRecipes = () => {
+        Axios.get('http://localhost:3001/recipes').then((response) => {
+            setRecipesList(response.data);
+        });
+    }
+
+    useEffect(() => {
+        getRecipes();
+    });
 
     return (
         <main>
@@ -22,7 +58,7 @@ const Recipes = () => {
             <Link to="/dodaj-przepis" className='btnAddNew'>Dodaj nowy przepis</Link>
             <Filterbar />
             <div className='recipes-list-wrapper'>
-                { recipesList.map((val, key) => {
+                {recipesList.map((val, key) => {
                     return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_recipe }>
                                 <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="Przepis" />
                                 <p>{ val.recipe_name }</p>
@@ -35,6 +71,7 @@ const Recipes = () => {
             </div>
         </main>
     );
+    */
 }
  
 export default Recipes;
