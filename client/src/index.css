@@ -57,6 +57,13 @@ nav a:hover {
   text-decoration: underline;
 }
 
+nav a button {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  color: white;
+}
+
 
 /*  Filtrowanie wyników  */
 
@@ -123,6 +130,63 @@ nav a:hover {
 }
 
 
+/*  Konto użytkownika  */
+.content-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.account-nav {
+  max-width: 20%;
+  margin-right: 10em;
+}
+
+.account-nav ul {
+  list-style: none;
+}
+
+.account-nav ul li {
+  margin: 5px;
+  padding: 10px 30px 10px 10px;
+  border: 1px solid black;
+}
+
+#account-details-wrapper {
+  max-width: 75%;
+}
+
+.add-admin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.add-admin-form input {
+  margin: 10px 0;
+  padding: 5px;
+  width: 20em;
+  font-size: 0.9em;
+}
+
+.add-admin-form button {
+  padding: 10px 17px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: rgb(105, 105, 105);
+  color: white;
+  border: none;
+}
+
+.add-admin-form button:hover {
+  background-color: rgb(75, 75, 75);
+  text-decoration: underline;
+}
+
+
 /*  Produkty  */
 
 .product-wrapper {
@@ -159,6 +223,7 @@ nav a:hover {
 
 
 /*  Szczegóły produktów  */
+
 .product-details-wrapper img {
   display: block;
   margin: 2rem auto;
@@ -193,7 +258,7 @@ nav a:hover {
   margin-left: 30px;
 }
 
-ul {
+.diets-wrapper ul {
   margin-left: 20px;
 }
 

@@ -27,9 +27,10 @@ const CreateProducts = () => {
     };
 
     return ( 
-        <main>
+        <div className="wrapper">
             <h1>Dodaj nowy produkt</h1>
             <div className="form">
+            
                 <label htmlFor="">Nazwa produktu</label>
                 <input type="text" onChange={ (event) => { setName(event.target.value) } }/>
 
@@ -56,7 +57,7 @@ const CreateProducts = () => {
 
                 <button onClick={ addProduct }>Dodaj produkt</button>
             </div>
-        </main>
+        </div>
     );
 }
  

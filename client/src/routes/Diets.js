@@ -1,6 +1,6 @@
 const Diets = () => {
     return (
-        <main>
+        <main className="diets-wrapper">
             <h1>Diety</h1>
             <h2 className="diets-header">Alergie</h2>
             <p>Alergia pokarmowa to nieprawidłowa reakcja organizmu na dany składnik pokarmu. Nasz układ immunologiczny nadmiernie reaguje na substancje wg. niego obcą czyli alergenu i zaczyna produkować przeciwciała wywołując reakcje alergiczną.</p>

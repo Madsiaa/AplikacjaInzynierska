@@ -13,7 +13,7 @@ const AddAdmin = () => {
     };
 
     return (
-        <div className="form">
+        <div className="add-admin-form">
             <label htmlFor="">Nazwa użytkownika</label>
             <input type="text" onChange={ (event) => { setUserName(event.target.value) } }/>
 

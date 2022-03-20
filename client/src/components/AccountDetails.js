@@ -1,6 +1,12 @@
 const AccountDetails = () => {
+    let userName = localStorage.getItem('userName');
+    let userRole = localStorage.getItem('userRole');
+
     return (
-        <h1>Witaj user!</h1>
+        <div className="accoutn-details">
+            <h1>Witaj { userName }!</h1>
+            <p>Twoja rola to: { userRole }</p>
+        </div>
     );
 }
  
