@@ -1,10 +1,12 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+const saltRounds = 11;
 app.use(express.json());
 app.use(cors());
 
@@ -89,6 +91,50 @@ app.post('/recipe-details', (req, res) => {
   });
 });
 
+
+// rejestrowanie użytkownika w bazie wraz z hashowaniem hasła
+app.post('/register', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  console.log("Username: " + username + ", Pass: " + password);
+
+  if(username && password) {
+      db.query("SELECT * FROM users WHERE user_name = ?", [username], (err, res) => {
+          if(err) console.log(err);
+          if(res.length >= 1) console.log("Użytkownik istnieje");
+          else {
+              bcrypt.hash(password, saltRounds, function(err, hash) {
+                  if(err)    console.log(err);
+                  db.query("INSERT INTO users (user_name, user_pswd) VALUES (?, ?)", [username, hash], (err, res) => {
+                      if(err)   console.log(err);
+                      if(res)    console.log("Dodano do bazy");
+                 });
+              });
+          }
+      });
+  } else {
+      console.log("Nie uzupełniono pola rejestracji!");
+  }
+});
+
+// logowanie użytkownika
+app.post('/login', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  if(username && password) {
+      db.query("SELECT * FROM users WHERE user_name = ?", username, (err, result) => {
+          if(err) console.log(err);
+          if(result.length > 0)  {
+              bcrypt.compare(password, result[0].user_pswd, (err, response) => {
+                  if(err) console.log(err);
+                  if(response)    res.send(result[0]);   //res.send({message: 'Zalogowano! Witaj ' + result[0].user_name});
+                  else    res.send({message: 'Zła nazwa użytkownika lub hasło!'});
+              });
+          } else    res.send({message: 'Użytkownik nie istnieje!'});
+      });
+  } else  res.send({message: 'Uzupełnij pole nazwa i/lub hasło!'});
+});
 
 // nadanie admina użytkownikowi
 app.post('/add-new-admin', (req, res) => {

@@ -29,7 +29,7 @@ const RecipeDetails = () => {
         <main>
             <h1>Szczegóły przepisu ID: { id }</h1>
             {recipe.map((val, key) => {
-                return <article className='recipe-details-wrapper'>
+                return <article className='recipe-details-wrapper' key={key}>
                         <button onClick={ addToFav() }>Dodaj do ulubionych</button>
                         <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="zdjęcie przepisu" />
                         <p><b>Nazwa przepisu: </b>{ val.product_name }</p>

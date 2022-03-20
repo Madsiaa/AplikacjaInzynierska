@@ -207,6 +207,7 @@ ul {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid black;
 }
 
 .recipe-wrapper img {
@@ -219,15 +220,6 @@ ul {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.recipe-wrapper {
-  max-width: 500px;
-  border: solid 1px black;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 10px;
-  align-items: center;
 }
 
 .recipe-wrapper a {
