@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import Filterbar from '../components/Filterbar';
 
 const  Recipes = () => {
     const [recipesList, setRecipesList] = useState([]);
@@ -20,7 +19,6 @@ const  Recipes = () => {
         <main>
             <h1>Przepisy</h1>
             <Link to="/dodaj-przepis" className="btnAddNew">Dodaj nowy przepis</Link>
-            <Filterbar />
             <div className='recipe-list-wrapper'>
                 {recipesList.map((val, key) => {
                     return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_product }>

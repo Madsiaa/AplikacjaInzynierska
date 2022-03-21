@@ -7,41 +7,28 @@ import CreateProduct from '../components/CreateProduct';
 import CheckRecipe from '../components/CheckRecipe';
 import AddAdmin from '../components/AddAdmin';
 
-
-/*
-1. Sprawdź rolę użytkoiwnika
-2. Dla części ról przyciski będą niewidoczne
-3. Po kliknięciu w przycisk zostanie wyrenderowany odpowiedni komponent
-*/
-
 const rednerAccountDetails = () => {
     ReactDOM.render(<AccountDetails/>, document.getElementById('account-details-wrapper'));
-    console.log("account details")
 }
 
 const rednerFavProducts = () => {
     ReactDOM.render(<FavProducts />, document.getElementById('account-details-wrapper'));
-    console.log("fav products")
 }
 
 const rednerFavRecipes = () => {
     ReactDOM.render(<FavRecipes />, document.getElementById('account-details-wrapper'));
-    console.log("fav recipes")
 }
 
 const rednerCreateProduct = () => {
     ReactDOM.render(<CreateProduct />, document.getElementById('account-details-wrapper'));
-    console.log("create product")
 }
 
 const rednerCheckRecipe = () => {
     ReactDOM.render(<CheckRecipe />, document.getElementById('account-details-wrapper'));
-    console.log("check recipe")
 }
 
 const rednerAddAdmin = () => {
     ReactDOM.render(<AddAdmin />, document.getElementById('account-details-wrapper'));
-    console.log("add admin")
 }
 
 const Account = () => {

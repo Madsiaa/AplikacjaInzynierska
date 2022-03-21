@@ -11,20 +11,19 @@ const Login = () => {
           username: usernameLog, 
           password: passwordLog
         }).then((response) => {
-          console.log(response.data);
           setLoginStatus(response.data.message);
           localStorage.setItem('userName', response.data.user_name);
           localStorage.setItem('userRole', response.data.user_role);
-          let username = localStorage.getItem('userName');
-          let userrole = localStorage.getItem('userRole');
-          console.log("localStorage: " + username, userrole);
+          localStorage.setItem('userCreateDate', response.data.user_createDate);
+          localStorage.setItem('userFavProduct', response.data.user_fav_product);
+          localStorage.setItem('userFavRecipe', response.data.user_fav_recipe);
         });
       };
 
     return (
         <main>
             <h1>Logowanie</h1>
-            <div className="form">
+            <div className="form-login-signup">
                 <label htmlFor="login-username">Nazwa użytkownika:</label>
                 <input type="text" name="login-username" onChange={(e) => {setUsernameLog(e.target.value)}} />
 

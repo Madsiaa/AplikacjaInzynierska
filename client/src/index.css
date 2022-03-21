@@ -131,6 +131,37 @@ nav a button {
 
 
 /*  Konto użytkownika  */
+.form-login-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-login-signup label {
+  margin-top: 10px;
+}
+
+.form-login-signup input {
+  width: 20rem;
+  height: 2rem;
+  padding: 0.3rem;
+}
+
+.form-login-signup button {
+  margin-top: 1.5rem;
+  padding: 14px 24px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: rgb(105, 105, 105);
+  color: white;
+  border: none;
+}
+
+.form-login-signup h3 {
+  margin: 3em 0;
+}
+
 .content-wrapper {
   box-sizing: border-box;
   display: flex;
@@ -153,6 +184,12 @@ nav a button {
   margin: 5px;
   padding: 10px 30px 10px 10px;
   border: 1px solid black;
+  cursor: pointer;
+}
+
+.account-nav ul li:hover {
+  background-color: rgb(105, 105, 105);
+  color: white;
 }
 
 #account-details-wrapper {

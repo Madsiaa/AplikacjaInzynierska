@@ -17,7 +17,7 @@ const Signup = () => {
     return (
         <main>
             <h1>Rejestracja</h1>
-            <div className="signup">
+            <div className="form-login-signup">
                 <label htmlFor="signup-username">Nazwa użytkownika:</label>
                 <input type="text" name="signup-username" onChange={(e) => {setUsernameReg(e.target.value)}} />
 
@@ -25,7 +25,9 @@ const Signup = () => {
                 <input type="password" name="signup-password" onChange={(e) => {setPasswordReg(e.target.value)}} />
 
                 <button onClick = { register }>Zarejestruj</button>
+                <h3>Po pomyślnej rejestracji należy się zalogować.</h3>
             </div>
+            
         </main>
     );
 }

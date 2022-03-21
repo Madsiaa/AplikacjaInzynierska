@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import Filterbar from '../components/Filterbar';
 
 const Products = () => {
     const [productsList, setProductsList] = useState([]);
@@ -20,7 +19,6 @@ const Products = () => {
         <main>
             <h1>Produkty</h1>
             <Link to="/dodaj-produkt" className="btnAddNew">Dodaj nowy produkt</Link>
-            <Filterbar />
             <div className='product-list-wrapper'>
                 {productsList.map((val, key) => {
                     return  <article className='product-wrapper' key={ 'product-' + val.id_product }>

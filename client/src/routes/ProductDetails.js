@@ -20,9 +20,17 @@ const ProductDetails = () => {
         getProductDetails();
     }, []);
 
-    // napisać logikę
     const addToFav = () => {
-        console.log("Kliknięto przycisk!");
+        let user = localStorage.getItem('userName');
+        let favProductArray = localStorage.getItem('userFavProduct').split(',');
+        favProductArray.push(id);
+        favProductArray.join();
+        Axios.post("http://localhost:3001/add-product-fav", {
+            items: favProductArray,
+            user: user
+        }).then((response) => {
+            console.log(response);
+        });
     }
 
     return (
@@ -30,7 +38,7 @@ const ProductDetails = () => {
             <h1>Szczegóły produktu ID: { id }</h1>
             {product.map((val, key) => {
                 return <article className='product-details-wrapper'>
-                        <button onClick={ addToFav() }>Dodaj produkt do ulubionych</button>
+                        <button onClick={ addToFav }>Dodaj produkt do ulubionych</button>
                         <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="zdjęcie produktu" />
                         <p><b>Nazwa produktu: </b>{ val.product_name }</p>
                         <p><b>Marka produktu: </b>{ val.product_brand }</p>

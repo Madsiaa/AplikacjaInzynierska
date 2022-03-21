@@ -91,6 +91,28 @@ app.post('/recipe-details', (req, res) => {
   });
 });
 
+// dodawnianie produktu do ulubionych
+app.post('/add-product-fav', (req, res) => {
+  const items = req.body.items;
+  const user = req.body.user;
+  
+  db.query("UPDATE users SET user_fav_product = (?) WHERE id_user = (?)", [items, user], (err, result) => {
+    if(err)  console.log(err);
+    else  res.send(result);
+  });
+});
+
+// dodawnianie przepisu do ulubionych
+app.post('/add-recipe-fav', (req, res) => {
+  const items = req.body.items;
+  const user = req.body.user;
+  
+  db.query("UPDATE users SET user_fav_recipe = (?) WHERE id_user = (?)", [items, user], (err, result) => {
+    if(err)  console.log(err);
+    else  res.send(result);
+  });
+});
+
 
 // rejestrowanie użytkownika w bazie wraz z hashowaniem hasła
 app.post('/register', (req, res) => {
@@ -134,6 +156,44 @@ app.post('/login', (req, res) => {
           } else    res.send({message: 'Użytkownik nie istnieje!'});
       });
   } else  res.send({message: 'Uzupełnij pole nazwa i/lub hasło!'});
+});
+
+// pobranie ulubionych produktów użytkownika
+app.post('/fav-products', (req, res) => {
+  const id = req.body.favProductId;
+
+  db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
+    if(err)  {console.log(err);}
+    else  {res.send(result);}
+  });
+});
+
+// pobranie ulubionych przepisów użytkownika
+app.post('/fav-recipes', (req, res) => {
+  const id = req.body.favRecipesId;
+
+  db.query("SELECT * FROM recipes WHERE id_recipe = (?)", [id], (err, result) => {
+    if(err)  {console.log(err);}
+    else  {res.send(result);}
+  });
+});
+
+// pobranie listy przepisów do sprawdzenia
+app.get('/check-recipes', (req, res) => {
+  db.query("SELECT * FROM recipes WHERE recipe_status = 'toCheck'", (err, result) => {
+    if(err)  {console.log(err);}
+    else  {res.send(result);}
+  });
+});
+
+// zmienia status przepisu na sprawdzony
+app.post('/accept-recipe', (req, res) => {
+  const id = req.body.id;
+
+  db.query("UPDATE recipes SET recipe_status = 'checked' WHERE id_recipe = (?)", [id], (err, result) => {
+    if(err) console.log(err);
+    else res.send('Zmieniono rekord!');
+  });
 });
 
 // nadanie admina użytkownikowi
