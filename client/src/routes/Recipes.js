@@ -3,6 +3,8 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const  Recipes = () => {
+    let userRole = localStorage.getItem('userRole');
+
     const [recipesList, setRecipesList] = useState([]);
 
     const getRecipes = () => {
@@ -18,7 +20,9 @@ const  Recipes = () => {
     return (
         <main>
             <h1>Przepisy</h1>
-            <Link to="/dodaj-przepis" className="btnAddNew">Dodaj nowy przepis</Link>
+            {userRole === 'admin' && <Link to="/dodaj-przepis" className="btnAddNew">Dodaj nowy przepis</Link>}
+            {userRole === 'mod' && <Link to="/dodaj-przepis" className="btnAddNew">Dodaj nowy przepis</Link>}
+            {userRole === 'user' && <Link to="/dodaj-przepis" className="btnAddNew">Dodaj nowy przepis</Link>}
             <div className='recipe-list-wrapper'>
                 {recipesList.map((val, key) => {
                     return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_product }>

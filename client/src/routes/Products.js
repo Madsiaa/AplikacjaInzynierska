@@ -18,7 +18,6 @@ const Products = () => {
     return (
         <main>
             <h1>Produkty</h1>
-            <Link to="/dodaj-produkt" className="btnAddNew">Dodaj nowy produkt</Link>
             <div className='product-list-wrapper'>
                 {productsList.map((val, key) => {
                     return  <article className='product-wrapper' key={ 'product-' + val.id_product }>

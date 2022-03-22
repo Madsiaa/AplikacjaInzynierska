@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 
 const RecipeDetails = () => {
+    let userRole = localStorage.getItem('userRole');
+
     const { id } = useParams();
     const [recipe, setRecipe] = useState([]);
     const [recipeId, setRecipeId] = useState('');
@@ -47,7 +49,8 @@ const RecipeDetails = () => {
             {recipe.map((val, key) => {
                 return <article className='recipe-details-wrapper' key={key}>
                         <button onClick={ addToFav }>Dodaj do ulubionych</button>
-                        <button onClick={ acceptRecipe }></button>
+                        {userRole === 'admin' && <button onClick={ acceptRecipe }></button>}
+                        {userRole === 'mod' && <button onClick={ acceptRecipe }></button>}
                         <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="zdjęcie przepisu" />
                         <p><b>Nazwa przepisu: </b>{ val.product_name }</p>
                         <p><b>Autor przepisu: </b>{ val.product_brand }</p>

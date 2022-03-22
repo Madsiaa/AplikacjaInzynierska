@@ -17,6 +17,7 @@ const Login = () => {
           localStorage.setItem('userCreateDate', response.data.user_createDate);
           localStorage.setItem('userFavProduct', response.data.user_fav_product);
           localStorage.setItem('userFavRecipe', response.data.user_fav_recipe);
+          alert('Zalogowano!');
         });
       };
 

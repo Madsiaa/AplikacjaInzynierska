@@ -10,7 +10,7 @@ const Signup = () => {
           username: usernameReg, 
           password: passwordReg
         }).then((response) => {
-          console.log(response);
+          alert('Pomyślnie zarejestrowano! Proszę się zalogować.');
         });
       };
 

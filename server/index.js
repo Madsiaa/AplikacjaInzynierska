@@ -196,6 +196,16 @@ app.post('/accept-recipe', (req, res) => {
   });
 });
 
+// nadanie moderatora użytkownikowi
+app.post('/add-new-mod', (req, res) => {
+  const userName = req.body.userName;
+
+  db.query("UPDATE users SET user_role = 'mod' WHERE user_name = (?)", [userName], (err, result) => {
+    if(err) console.log(err);
+    else res.send('Zmieniono rekord!');
+  });
+});
+
 // nadanie admina użytkownikowi
 app.post('/add-new-admin', (req, res) => {
   const userName = req.body.userName;
