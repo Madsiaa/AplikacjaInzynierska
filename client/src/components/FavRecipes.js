@@ -22,9 +22,9 @@ const FavRecipes = () => {
     return (
         <div className="fav-products-wrapper">
             <h1>Ulubione przepisy</h1>
-            <div className='product-list-wrapper'>
+            <div className='items-list-wrapper'>
                 {favRecipesList.map((val, key) => {
-                    return  <article className='recipe-wrapper' key={ 'recipe-' + val.id_product }>
+                    return  <article className='items-wrapper' key={ 'recipe-' + val.id_product }>
                                 <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="Przepis" />
                                 <p>{ val.recipe_name }</p>
                                 <p>Autor: { val.recipe_author }</p>

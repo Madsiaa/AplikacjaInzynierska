@@ -4,14 +4,12 @@ import Axios from 'axios';
 const Login = () => {
     const [usernameLog, setUsernameLog] = useState('');
     const [passwordLog, setPasswordLog] = useState('');
-    const [loginStatus, setLoginStatus] = useState('');
 
     const login = () => {
         Axios.post('http://localhost:3001/login', {
           username: usernameLog, 
           password: passwordLog
         }).then((response) => {
-          setLoginStatus(response.data.message);
           localStorage.setItem('userName', response.data.user_name);
           localStorage.setItem('userRole', response.data.user_role);
           localStorage.setItem('userCreateDate', response.data.user_createDate);
@@ -32,8 +30,8 @@ const Login = () => {
                 <input type="password" name="login-password" onChange={(e) => {setPasswordLog(e.target.value)}} />
 
                 <button onClick = { login }>Zaloguj</button>
+                <h3>Po pomyślnym zalogowaniu należy odświeżyć stronę.</h3>
             </div>
-            <h2>{ loginStatus }</h2>
         </main>
     );
 }

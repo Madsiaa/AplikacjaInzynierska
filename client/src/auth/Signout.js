@@ -4,7 +4,7 @@ const Signout = () => {
     return (
         <main>
             <h1>Wylogowano</h1>
-            <Link to="/">Powrót do strony głównej</Link>
+            <Link to="/" className='link'>Powrót do strony głównej</Link>
         </main>
     );
 }
