@@ -18,13 +18,13 @@ const ProductDetails = () => {
 
     useEffect(() => {
         getProductDetails();
-    }, []);
+    });
 
     const addToFav = () => {
         let user = localStorage.getItem('userName');
         let favProductArray = localStorage.getItem('userFavProduct').split(',');
         favProductArray.push(id);
-        favProductArray.join();
+        favProductArray.join(',');
         Axios.post("http://localhost:3001/add-product-fav", {
             items: favProductArray,
             user: user

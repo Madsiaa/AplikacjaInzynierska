@@ -75,7 +75,7 @@ app.post('/create-recipe', (req, res) => {
 
 // pobieranie przepisów
 app.get('/recipes', (req, res) => {
-  db.query("SELECT * FROM recipes", (err, result) => {
+  db.query("SELECT * FROM recipes WHERE recipe_status = 'checked'", (err, result) => {
     if(err)  {console.log(err);}
     else  {res.send(result);}
   });
@@ -163,8 +163,8 @@ app.post('/fav-products', (req, res) => {
   const id = req.body.favProductId;
 
   db.query("SELECT * FROM products WHERE id_product = (?)", [id], (err, result) => {
-    if(err)  {console.log(err);}
-    else  {res.send(result);}
+    if(err)  console.log(err);
+    else  res.send(result);
   });
 });
 
@@ -173,16 +173,16 @@ app.post('/fav-recipes', (req, res) => {
   const id = req.body.favRecipesId;
 
   db.query("SELECT * FROM recipes WHERE id_recipe = (?)", [id], (err, result) => {
-    if(err)  {console.log(err);}
-    else  {res.send(result);}
+    if(err)  console.log(err);
+    else  res.send(result);
   });
 });
 
 // pobranie listy przepisów do sprawdzenia
 app.get('/check-recipes', (req, res) => {
   db.query("SELECT * FROM recipes WHERE recipe_status = 'toCheck'", (err, result) => {
-    if(err)  {console.log(err);}
-    else  {res.send(result);}
+    if(err)  console.log(err);
+    else  res.send(result);
   });
 });
 

@@ -59,7 +59,7 @@ p, ul, li {
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: #0d4b1a;
+  background-color: #248b3a;
 }
 
 nav a {
@@ -292,6 +292,36 @@ nav a button {
   text-decoration: underline;
 }
 
+.recipe-details-wrapper button {
+  float: right;
+  margin-top: -42px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #3c9141;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.recipe-details-wrapper .confirm {
+  margin-right: 12em;
+}
+
+.recipe-details-wrapper button {
+  float: right;
+  margin-top: -42px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #3c9141;
+  color: white;
+  border-radius: 3px;
+}
+
+.recipe-details-wrapper button:hover {
+  background-color: #177e1d;
+  text-decoration: underline;
+}
+
 
 /*  Diety  */
 
@@ -308,7 +338,7 @@ footer {
   padding: 0;
   width: 100vw;
   height: 3rem;
-  background-color: #0d4b1a;
+  background-color: #248b3a;
   color: white;
 }
 

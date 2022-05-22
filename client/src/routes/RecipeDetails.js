@@ -20,19 +20,30 @@ const RecipeDetails = () => {
 
     useEffect(() => {
         getRecipe();
-    }, []);
+    });
 
     const addToFav = () => {
         let user = localStorage.getItem('userName');
-        let favRecipeArray = localStorage.getItem('userFavRecipe').split(',');
-        favRecipeArray.push(id);
-        favRecipeArray.join();
-        Axios.post("http://localhost:3001/add-recipe-fav", {
-            items: favRecipeArray,
-            user: user
-        }).then((response) => {
-            console.log(response);
-        });
+        let userProducts = localStorage.getItem('userFavRecipe');
+        if(userProducts === ''){
+            Axios.post("http://localhost:3001/add-recipe-fav", {
+                items: id,
+                user: user
+            }).then((response) => {
+                console.log(response);
+            });
+        } else {
+            let favRecipeArray = localStorage.getItem('userFavRecipe').split(',');
+            favRecipeArray.push(id);
+            favRecipeArray.join();
+
+            Axios.post("http://localhost:3001/add-recipe-fav", {
+                items: favRecipeArray,
+                user: user
+            }).then((response) => {
+                console.log(response);
+            });
+        }
     }
 
     const acceptRecipe = () => {
@@ -49,17 +60,17 @@ const RecipeDetails = () => {
             {recipe.map((val, key) => {
                 return <article className='recipe-details-wrapper' key={key}>
                         <button onClick={ addToFav }>Dodaj do ulubionych</button>
-                        {userRole === 'admin' && <button onClick={ acceptRecipe }></button>}
-                        {userRole === 'mod' && <button onClick={ acceptRecipe }></button>}
+                        {userRole === 'admin' && <button className='confirm' onClick={ acceptRecipe }>Zaakceptuj przepis</button>}
+                        {userRole === 'mod' && <button className='confirm' onClick={ acceptRecipe }>Zaakceptuj przepis</button>}
                         <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="zdjęcie przepisu" />
-                        <p><b>Nazwa przepisu: </b>{ val.product_name }</p>
-                        <p><b>Autor przepisu: </b>{ val.product_brand }</p>
-                        <p><b>Opis przepisu: </b>{ val.product_description }</p>
-                        <p><b>Składniki przepisu: </b>{ val.product_ingredients }</p>
-                        <p><b>Kroki: </b>{ val.product_allergens }</p>
-                        <p><b>Czas wykonywania przepisu: </b>{ val.product_nutrition }</p>
-                        <p><b>Trudność przepisu: </b>{ val.product_weight }</p>
-                        <p><b>Słowa kluczowe: </b>{ val.product_keywords }</p>
+                        <p><b>Nazwa przepisu: </b>{ val.recipe_name }</p>
+                        <p><b>Autor przepisu: </b>{ val.recipe_author }</p>
+                        <p><b>Opis przepisu: </b>{ val.recipe_description }</p>
+                        <p><b>Składniki przepisu: </b>{ val.recipe_ingredients }</p>
+                        <p><b>Kroki: </b>{ val.recipe_steps }</p>
+                        <p><b>Czas wykonywania przepisu: </b>{ val.recipe_time }</p>
+                        <p><b>Trudność przepisu: </b>{ val.recipe_level }</p>
+                        <p><b>Słowa kluczowe: </b>{ val.recipe_keywords }</p>
                        </article>
             })}
         </main>

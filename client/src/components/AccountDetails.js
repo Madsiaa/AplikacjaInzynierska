@@ -12,8 +12,14 @@ const AccountDetails = () => {
             <h1>Witaj { userName }!</h1>
             <p>Twoja rola to: { userRole }</p>
             <p>Konto zostało utworzone: { userCreateDate }</p>
-            <p>Ilość ulubionych produktów: { favProductArr.length }</p>
-            <p>Ilość ulubionych przepisów: { favRecipeArr.length }</p>
+            {userFavProduct !== 'null'
+                ? <p>Ilość ulubionych produktów: { favProductArr.length }</p>
+                : <p>Ilość ulubionych produktów: 0</p>
+            }
+            {userFavRecipe !== 'null'
+                ? <p>Ilość ulubionych przepisów: { favProductArr.length }</p>
+                : <p>Ilość ulubionych przepisów: 0</p>
+            }
         </div>
     );
 }
